@@ -17,7 +17,5 @@ def create_db_and_tables():
 
 
 if __name__ == "__main__":
-    SQLModel.metadata.drop_all(engine)
-    SQLModel.metadata.create_all(engine)
     create_db_and_tables()
     print("Database is ready for reviews!")
