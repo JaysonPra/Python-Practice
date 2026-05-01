@@ -9,5 +9,8 @@ wheels/
 # Virtual environments
 .venv
 
+# Secret files
+.env
+
 # pytest-generated files
 .pytest_cache/
