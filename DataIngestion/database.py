@@ -2,6 +2,7 @@ from typing import cast
 
 from logging_config import setup_logger
 from loguru import logger
+from models import Review as _Review  # noqa: F401
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from sqlmodel import Session, SQLModel, create_engine, select, text
 
