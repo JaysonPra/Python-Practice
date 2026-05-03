@@ -1,3 +1,5 @@
+from typing import List
+
 from database import engine
 from logging_config import setup_logger
 from loguru import logger
@@ -7,7 +9,7 @@ from sqlmodel import Session
 setup_logger()
 
 
-def add_review(reviews: list[dict]) -> None:
+def add_review(reviews: List[dict]) -> None:
     with Session(engine) as session:
         for i, review_dict in enumerate(reviews):
             try:
