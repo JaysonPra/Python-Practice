@@ -23,7 +23,7 @@ class ModelCard:
             Model: {self.model_name}
             Version: {self.version}
             Accuracy: {self.accuracy}
-            Created At: {self.created_at}
+            Created At: {self.created_at:%Y-%m-%d}
             Production Ready: {"Ready" if self.is_production_ready else "Not Ready"}
         """
 
