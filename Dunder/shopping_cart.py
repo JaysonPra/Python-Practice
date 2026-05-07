@@ -1,3 +1,8 @@
+from __future__ import annotations
+
+from typing import Self
+
+
 class Product:
     def __init__(self, name: str, price: float) -> None:
         self.name = name
@@ -7,7 +12,7 @@ class Product:
         return f"Product {self.name} with price: ${self.price}"
 
     def __repr__(self) -> str:
-        return f"Product(name={self.name}, price={self.price})"
+        return f"Product(name={self.name!r}, price={self.price})"
 
 
 class Cart:
@@ -31,7 +36,7 @@ class Cart:
     def __contains__(self, item_name: str) -> bool:
         return any(p.name == item_name for p in self.items)
 
-    def __add__(self, other):
+    def __add__(self, other) -> Cart:
         if not isinstance(other, Cart):
             return NotImplemented
 
@@ -40,7 +45,7 @@ class Cart:
 
         return new_cart
 
-    def __iadd__(self, other):
+    def __iadd__(self, other) -> Self:
         if isinstance(other, Product):
             self.items.append(other)
             return self
