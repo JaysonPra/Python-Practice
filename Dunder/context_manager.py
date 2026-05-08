@@ -1,5 +1,5 @@
+from contextlib import contextmanager
 from time import perf_counter
-from typing import Any
 
 import numpy as np
 
@@ -25,10 +25,20 @@ class Timer:
 
         return False
 
-    def __call__(self, *args: Any, **kwds: Any) -> None:
-        print("Hi, I got called!")
+
+@contextmanager
+def timer(task_name: str):
+    start_time = perf_counter()
+    print(f"Started Task: {task_name}")
+    try:
+        yield None
+    finally:
+        total_time = perf_counter() - start_time
+        print(f"Finished Task: {task_name}. Took {total_time:.4f} seconds.")
 
 
-with Timer("Creation of random numpy array") as timer:
+with Timer("Creation of random numpy array"):
     random_arr = np.random.randint(1, 100, size=(5000, 5000))
-    timer()
+
+with timer("Creation of random numpy array - Part 2"):
+    random_arr = np.random.randint(1, 100, (5000, 5000))
