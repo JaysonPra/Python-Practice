@@ -1,4 +1,5 @@
 from time import perf_counter
+from typing import Any
 
 import numpy as np
 
@@ -24,6 +25,10 @@ class Timer:
 
         return False
 
+    def __call__(self, *args: Any, **kwds: Any) -> None:
+        print("Hi, I got called!")
 
-with Timer("Creation of random numpy array"):
+
+with Timer("Creation of random numpy array") as timer:
     random_arr = np.random.randint(1, 100, size=(5000, 5000))
+    timer()
