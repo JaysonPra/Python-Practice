@@ -8,15 +8,15 @@ class Verified(Generic[T]):
         self.validator = validator
         self.name = ""
 
-    def __set_name__(self, owner: Any, name: str):
+    def __set_name__(self, owner: Any, name: str) -> None:
         self.name = name
 
-    def __get__(self, instance, owner):
+    def __get__(self, instance, owner) -> Any:
         if instance is None:
             return self
         return instance.__dict__.get(self.name)
 
-    def __set__(self, instance, value):
+    def __set__(self, instance, value) -> None:
         if not self.validator(value):
             raise ValueError(f"Invalid value for {self.name}: {value}")
         instance.__dict__[self.name] = value
@@ -29,4 +29,4 @@ class ModelConfig:
 
 config = ModelConfig()
 config.lr = 0.5
-print(config.lr)
+config.batch_size = 32
