@@ -7,12 +7,12 @@ class Predictor(Protocol):
 
 class XGBoostClassifier:
     def predict(self, data: list[float]) -> float:
-        return 0.85
+        return 0.85  # Placeholder logic
 
 
 class LogisticRegression:
     def predict(self, data: list[float]) -> float:
-        return 0.70
+        return 0.70  # Placeholder logic
 
 
 def run_inference(model: Predictor, data: list[float]):
