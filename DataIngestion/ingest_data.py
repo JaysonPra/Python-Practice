@@ -27,7 +27,7 @@ def add_review(reviews: list[dict], session: Session) -> None:
     try:
         session.commit()
         logger.success(
-            f"Succesfully committed {valid_review_count} reviews to the database!"
+            f"Successfully committed {valid_review_count} reviews to the database!"
         )
 
     except SQLAlchemyError:
