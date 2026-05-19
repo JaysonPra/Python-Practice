@@ -18,7 +18,7 @@ def add_review(reviews: list[dict], session: Session) -> None:
             valid_review_count += 1
 
         except ValidationError:
-            logger.exception(f"Skipping index {i} due to invalid schema.")
+            logger.warning(f"Skipping index {i} due to invalid schema.")
 
     if valid_review_count == 0:
         logger.info("No valid reviews to commit")
