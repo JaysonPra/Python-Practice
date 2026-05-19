@@ -1,5 +1,3 @@
-from typing import List
-
 from logging_config import setup_logger
 from loguru import logger
 from models import Review
@@ -8,7 +6,7 @@ from sqlmodel import Session
 setup_logger()
 
 
-def add_review(reviews: List[dict], session: Session) -> None:
+def add_review(reviews: list[dict], session: Session) -> None:
     for i, review_dict in enumerate(reviews):
         try:
             validated_review = Review.model_validate(review_dict)
