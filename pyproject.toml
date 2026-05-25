@@ -22,6 +22,8 @@ dependencies = [
     "seaborn>=0.13.2",
     "sqlmodel>=0.0.38",
     "transformers>=5.8.0",
+    "requests>=2.34.2",
+    "rich>=15.0.0",
 ]
 
 [tool.ruff]
