@@ -26,6 +26,7 @@ dependencies = [
     "rich>=15.0.0",
     "prefect>=3.7.2",
     "google-play-scraper>=1.2.7",
+    "hypothesis>=6.155.0",
 ]
 
 [tool.ruff]
