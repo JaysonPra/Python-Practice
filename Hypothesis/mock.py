@@ -3,8 +3,7 @@ from hypothesis import strategies as st
 
 
 def reverse(input_str: str) -> str:
-    if isinstance(input_str, str):
-        return input_str[::-1]
+    return input_str[::-1]
 
 
 @given(st.text())
