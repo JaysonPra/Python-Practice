@@ -62,8 +62,14 @@ if __name__ == "__main__":
     validation_suite.add_rule(CheckMissing("booked"))
     validation_suite.add_rule(CheckType("booked", bool))
 
-    corrupt_dict = {"num_rooms": "4"}
-
+    corrupt_dict: dict[str, Any] = {"num_rooms": "4"}
     errors = validation_suite.verify(corrupt_dict)
+    for error in errors:
+        print(error)
+
+    print("-" * 40)
+
+    correct_dict: dict[str, Any] = {"num_rooms": 4, "booked": True}
+    errors = validation_suite.verify(correct_dict)
     for error in errors:
         print(error)
