@@ -3,8 +3,8 @@ import dis
 
 def use_explicit_loop(n: int) -> list[int]:
     squared_list: list[int] = []
-    for i in range(n):
-        squared_list.append(i**2)
+    for x in range(n):
+        squared_list.append(x**2)
 
     return squared_list
 
